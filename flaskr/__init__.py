@@ -39,4 +39,8 @@ def create_app(test_config=None): # factory(工場)的function
     # Import and register the blueprint from the factory using app.register_blueprint().
     # Place the new code at the end of the factory function before returning the app.
 
+    from . import blog
+    app.register_blueprint(blog.bp)
+    app.add_url_rule('/', endpoint='index')
+
     return app
